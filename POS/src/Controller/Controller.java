@@ -13,7 +13,6 @@ public class Controller {
 	    private Sale sale;
 	    
 	    public Controller() {
-	      kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk  
 	    }
 	    
 	    public void startNewSale() {
