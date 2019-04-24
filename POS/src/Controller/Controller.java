@@ -7,7 +7,7 @@ import model.Sale;
 import model.*;
 /**
  * @author Sadeq
- *this should be shown in git
+ *i add a commnet in controller class
  */
 public class Controller {
 	    private Sale sale;
