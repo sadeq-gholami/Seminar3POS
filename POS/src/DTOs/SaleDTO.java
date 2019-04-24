@@ -5,8 +5,4 @@ public class SaleDTO {
 	private String dateAndTime;
 	private String message;
 	private Amount change; 
-	
-	
-	
-
 }
