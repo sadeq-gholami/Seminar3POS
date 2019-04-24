@@ -7,7 +7,7 @@ import model.Sale;
 import model.*;
 /**
  * @author Sadeq
- * I change something here 
+ *this should be shown in git
  */
 public class Controller {
 	    private Sale sale;
