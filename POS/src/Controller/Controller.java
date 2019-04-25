@@ -16,7 +16,7 @@ public class Controller {
 	     // kkkkkkkkkkkkkkkhhhhhhhhhhhhhhhhhhhhhhhh  
 	    }
 	    
-	    public void startNewSale() {
+	    public static void startNewSale() {
 	        this.sale = new Sale();
 	    }
 	    public ItemInformation getItemInformation(String itemIdentifier, int itemQuantity) {
