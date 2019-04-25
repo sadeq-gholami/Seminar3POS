@@ -7,7 +7,7 @@ import model.Sale;
 import model.*;
 /**
  * @author Sadeq
- *
+ *hassan
  */
 public class Controller {
 	    private Sale sale;
