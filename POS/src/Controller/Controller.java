@@ -13,7 +13,7 @@ public class Controller {
 	    private Sale sale;
 	    
 	    public Controller() {
-	      kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk  
+	      hwjjjjjjj  llllll
 	    }
 	    
 	    public void startNewSale() {
@@ -21,6 +21,6 @@ public class Controller {
 	    }
 	    public ItemInformation getItemInformation(String itemIdentifier, int itemQuantity) {
 	    	ItemInformation iteminfo = new ItemInformation(itemIdentifier); 
-	    	return iteminfo;
+	    	return iteminfo; kkkk
 	    }
 }
