@@ -7,6 +7,7 @@ import se.kth.iv1500.POS.model.*;
 /**
  * @author Sadeq
  *i add a commnet in controller class
+ * jfjfjfjfjfjfjfjfjf
  */
 public class Controller {
 	    private Sale sale;
@@ -18,7 +19,7 @@ public class Controller {
 	        this.sale = new Sale();
 	    }
 	    public ItemInformation getItemInformation(String itemIdentifier, int itemQuantity) {
-	    	ItemInformation iteminfo = new ItemInformation(itemIdentifier); 
+	    	ItemInformation iteminfo = new ItemInformation(itemIdentifier);
 	    	return iteminfo;
 	    }
 }
