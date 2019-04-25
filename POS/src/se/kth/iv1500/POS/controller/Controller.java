@@ -18,7 +18,7 @@ public class Controller {
 	        this.sale = new Sale();
 	    }
 	    public ItemInformation getItemInformation(String itemIdentifier, int itemQuantity) {
-	    	ItemInformation iteminfo = new ItemInformation(itemIdentifier); 
+
 	    	return iteminfo;
 	    }
 }
