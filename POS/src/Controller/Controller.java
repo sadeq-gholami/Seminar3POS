@@ -16,6 +16,8 @@ public class Controller {
 	      
 	    }
 	    
+	    //Commit and Push
+	    
 	    public void startNewSale() {
 	        this.sale = new Sale();
 	    }
