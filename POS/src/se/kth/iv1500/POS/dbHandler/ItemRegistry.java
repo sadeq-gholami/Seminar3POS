@@ -19,7 +19,16 @@ public class ItemRegistry {
 	public ItemRegistry(){
 		addItem();
 	}
-
+	/**
+	 * checks if an item with the scanned identification is in the data base
+	 * @param itemIdentifier   the idetification of an item 
+	 * @return  an object of  <code >itemDTO</code> if there is an item with the same identificatio else <code>null</code>
+	 */
+	public ItemDTO findItem(String itemIdentifier) {
+		ItemDTO itemInfo = null;
+		for (ItemDTO itemto)
+		return itemInfo;
+	}
 	/**
 	 * the method adds item to the list of items that represents a fake database 
 	 */
