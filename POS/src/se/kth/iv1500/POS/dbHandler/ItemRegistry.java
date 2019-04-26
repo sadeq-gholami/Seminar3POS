@@ -20,6 +20,9 @@ public class ItemRegistry {
 		addItem();
 	}
 
+	/**
+	 * the method adds item to the list of items that represents a fake database 
+	 */
 	public void addItem() {
 		items.add(new ItemDTO("milk", SOMEAMOUNT, VAT10PERCENT, FIRSTITEMIDENTIFIER));
 		items.add(new ItemDTO("cocacola", SOMEOTHERAMOUNT,VAT15PERCENT, SECONDITEMIDENTIFIER));

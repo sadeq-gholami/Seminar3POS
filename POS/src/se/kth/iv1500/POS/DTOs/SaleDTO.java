@@ -1,11 +1,10 @@
 package se.kth.iv1500.POS.DTOs;
-<<<<<<< Updated upstream
 /**
  * this is a place holder for sale information 
  * @author Sadeq
  *
  */
-final class SaleDTO {
+public class SaleDTO {
 	private Amount runningTotal;
 	private ItemDTO itemInfo;
 	private String dateAndTime;
@@ -56,13 +55,5 @@ final class SaleDTO {
 	public String  getMessage() {
 		return this.message;
 	}
-=======
-//this is a place holder for saleinfo
-//another comment
-public class SaleDTO {
-	private Amount amount;
-	private String dateAndTime;
-	private String message;
-	private Amount change;
->>>>>>> Stashed changes
+
 }
