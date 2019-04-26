@@ -16,11 +16,17 @@ public class Amount {
 		this.currency = currency;
 		this.amount =  amount;
 	}
-	
+	/**
+	 * returns the amount of mony
+	 * @return amount of mony
+	 */
 	public int getAmount() {
 		return this.amount;
 	}
-	
+	/**
+	 * returns corruncy 
+	 * @return
+	 */
 	public String getCurrency() {
 		return this.currency;
 	}
