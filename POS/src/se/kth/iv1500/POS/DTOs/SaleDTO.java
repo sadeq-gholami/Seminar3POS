@@ -26,7 +26,7 @@ final class SaleDTO {
 	}
 	
 	/**
-	 * returns the running total 
+	 * returns the running total 5
 	 *@return the running total after each sale  
 	 */
 	public Amount getRunnigTotal() {
