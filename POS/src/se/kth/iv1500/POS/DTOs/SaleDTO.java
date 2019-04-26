@@ -42,7 +42,7 @@ public class SaleDTO {
 	
 	/**
 	 * returns the date and time of the running sale 
-	 *@return the date and time of sale
+	 *@return the date and tisdfghjklöä'me of sale
 	 */
 	public String getdateAndTime() {
 		return this.dateAndTime;
