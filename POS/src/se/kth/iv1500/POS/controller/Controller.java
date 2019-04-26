@@ -5,6 +5,7 @@ package se.kth.iv1500.POS.controller;
 
 import se.kth.iv1500.POS.model.*;
 import se.kth.iv1500.POS.DTOs.*;
+import se.kth.iv1500.POS.dbHandler.*;
 /**
 <<<<<<< HEAD
  * @author Zeineb
@@ -32,6 +33,12 @@ public class Controller {
 	     */
 	    public SaleDTO addItem(String itemIdentifier, int itemQuantity) {
 	    	SaleDTO currentSale = null; 
+	    	ItemRegistry itemRegistry = new ItemRegistry();
+	    	ItemDTO itemInfo = itemRegistry.findItem(itemIdentifier);
+	    	if (itemInfo != null) {
+	    		currentSale = this.sale.addItem(itemInfo, itemQuantity);
+	    		
+	    	}
 	    	return currentSale;
 	    }
 }

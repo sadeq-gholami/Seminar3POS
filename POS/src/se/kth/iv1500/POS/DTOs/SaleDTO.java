@@ -1,4 +1,8 @@
 package se.kth.iv1500.POS.DTOs;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * this is a place holder for sale information 
  * @author Sadeq
@@ -6,9 +10,8 @@ package se.kth.iv1500.POS.DTOs;
  */
 public class SaleDTO {
 	private Amount runningTotal;
-	private ItemDTO itemInfo;
+	private List<ItemDTO> itemsInCurrentSale = new ArrayList<>();
 	private String dateAndTime;
-	private String message;
 	
 	/**
 	 * creates a new instance representing a new sale; 
@@ -17,11 +20,10 @@ public class SaleDTO {
 	 * @param  dateAndTime     	the date and time of the running sale
 	 * @param  message 	 		message that contains information about the sale e.g       	  
 	 */
-	public SaleDTO(Amount runningTotal, ItemDTO itemInfo, String dateAndTime, String message) {
+	public SaleDTO(Amount runningTotal,List <ItemDTO> itemInfo, String dateAndTime) {
 		this.runningTotal = runningTotal;
-		this.itemInfo = itemInfo;
+		this.itemsInCurrentSale = itemInfo;
 		this.dateAndTime = dateAndTime;
-		this.message = message;
 	}
 	
 	/**
@@ -36,8 +38,8 @@ public class SaleDTO {
 	 * returns information about an item as an instance of ItemDTO
 	 *@return the name of an item  
 	 */
-	public ItemDTO getIteminfo() {
-		return this.itemInfo;
+	public List<ItemDTO> getIteminfo() {
+		return this.itemsInCurrentSale;
 	}
 	
 	/**
@@ -48,12 +50,5 @@ public class SaleDTO {
 		return this.dateAndTime;
 	}
 	
-	/**
-	 * returns the identification of an item 
-	 *@return the identification of an item  
-	 */
-	public String  getMessage() {
-		return this.message;
-	}
-
+	
 }

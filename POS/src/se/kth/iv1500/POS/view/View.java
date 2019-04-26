@@ -12,9 +12,10 @@ public class View {
 	        contr.startNewSale();
 	        System.out.println("New sale was started.");
 	        
-	        String itemIdentifier = "1234567989";
+	        String itemIdentifier = "987654321";
 	        SaleDTO saleInfo = contr.addItem(itemIdentifier, 4);
-	        
-	        System.out.println("the item wa added successfully");
+	        int value = saleInfo.getRunnigTotal().getAmount();
+	        System.out.println("the item wa added successfully \n "
+	        		+ "running total is:" + value);
 	    }
 }

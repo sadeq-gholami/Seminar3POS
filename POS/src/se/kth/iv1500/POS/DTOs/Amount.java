@@ -6,7 +6,7 @@ package se.kth.iv1500.POS.DTOs;
  */
 public class Amount {
 	private String currency;
-	private int amount;
+	private int amount= 0;
 	/**
 	 * creats an instans of Amount
 	 * @param amount    the amount of money
@@ -17,17 +17,20 @@ public class Amount {
 		this.amount =  amount;
 	}
 	/**
-	 * returns the amount of mony
-	 * @return amount of mony
+	 * returns the amount of money
+	 * @return amount of money
 	 */
 	public int getAmount() {
 		return this.amount;
 	}
 	/**
-	 * returns corruncy 
+	 * returns currency 
 	 * @return
 	 */
 	public String getCurrency() {
 		return this.currency;
+	}
+	public void addAmount(int amount) {
+		this.amount += amount;
 	}
 }

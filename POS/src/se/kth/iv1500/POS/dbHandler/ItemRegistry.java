@@ -21,12 +21,16 @@ public class ItemRegistry {
 	}
 	/**
 	 * checks if an item with the scanned identification is in the data base
-	 * @param itemIdentifier   the idetification of an item 
-	 * @return  an object of  <code >itemDTO</code> if there is an item with the same identificatio else <code>null</code>
+	 * @param itemIdentifier   the identification of an item 
+	 * @return  an object of  <code >itemDTO</code> if there is an item with the same identification else <code>null</code>
 	 */
 	public ItemDTO findItem(String itemIdentifier) {
 		ItemDTO itemInfo = null;
-		for (ItemDTO itemto)
+		for (ItemDTO item : items) {
+			if (item.getItemIdentifier().equals(itemIdentifier)) {
+				itemInfo = item;
+			}
+		}
 		return itemInfo;
 	}
 	/**
