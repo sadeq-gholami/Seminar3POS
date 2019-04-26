@@ -12,10 +12,11 @@ public class Main {
 
 	/**
 	 * @param args
-	 * one more comment 
+	 * change the comment in main 
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//this is a comment
 		Controller contr = new Controller();
         View view = new View(contr);
         view.runFakeSale();
