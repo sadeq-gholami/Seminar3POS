@@ -7,7 +7,7 @@ import se.kth.iv1500.POS.model.*;
 /**
  * @author Sadeq
  *i add a commnet in controller class
- * jfjfjfjfjfjfjfjfjf
+ * 
  */
 public class Controller {
 	    private Sale sale;
