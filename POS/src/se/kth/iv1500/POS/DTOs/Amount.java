@@ -6,5 +6,6 @@ public class Amount {
 	public Amount (String currency, double amount) {
 		this.currency = currency;
 		this.amount =  amount;
+		hffffff
 	}
 }
