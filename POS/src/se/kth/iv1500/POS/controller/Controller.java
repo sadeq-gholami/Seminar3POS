@@ -17,12 +17,19 @@ import se.kth.iv1500.POS.dbHandler.*;
  */
 public class Controller {
 	    private Sale sale;
-	    
+	    /**
+	     * Creates an instance of Controller which connects all the calls from view to classes in model and
+	     * classes in integration layer
+	     */
 	    public Controller() {
 	    }
 	    
-	    public void startNewSale() {
+	    /**
+	     * Starts a new sale by making an instance of Sale object.
+	     */
+	    public Sale startNewSale() {
 	        this.sale = new Sale();
+	        return this.sale;
 	    }
 	    
 	    /**

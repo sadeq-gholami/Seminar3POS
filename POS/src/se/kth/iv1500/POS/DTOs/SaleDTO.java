@@ -17,8 +17,7 @@ public class SaleDTO {
 	 * creates a new instance representing a new sale; 
 	 * @param  runningTotal     total price after scanning each item
 	 * @param  itemInfo         an instance of itemDTO which is a place holder for information about an item 
-	 * @param  dateAndTime     	the date and time of the running sale
-	 * @param  message 	 		message that contains information about the sale e.g       	  
+	 * @param  dateAndTime     	the date and time of the running sale       	  
 	 */
 	public SaleDTO(Amount runningTotal,List <ItemDTO> itemInfo, String dateAndTime) {
 		this.runningTotal = runningTotal;
@@ -27,7 +26,7 @@ public class SaleDTO {
 	}
 	
 	/**
-	 * returns the running total 5
+	 * returns the running total 
 	 *@return the running total after each sale  
 	 */
 	public Amount getRunnigTotal() {

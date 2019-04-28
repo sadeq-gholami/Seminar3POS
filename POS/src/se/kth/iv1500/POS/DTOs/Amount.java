@@ -6,9 +6,9 @@ package se.kth.iv1500.POS.DTOs;
  */
 public class Amount {
 	private String currency;
-	private int amount= 0;
+	private int amount;
 	/**
-	 * creats an instans of Amount
+	 * creates an instance of Amount
 	 * @param amount    the amount of money
 	 * @param currency  the currency for money
 	 */
