@@ -8,7 +8,7 @@ public class Amount {
 	private String currency;
 	private int amount;
 	/**
-	 * creats an instans of Amount
+	 * creates an instance of Amount
 	 * @param amount    the amount of money
 	 * @param currency  the currency for money
 	 */
@@ -18,17 +18,20 @@ public class Amount {
 		hffffff
 	}
 	/**
-	 * returns the amount of mony
-	 * @return amount of mony
+	 * returns the amount of money
+	 * @return amount of money
 	 */
 	public int getAmount() {
 		return this.amount;
 	}
 	/**
-	 * returns corruncy 
+	 * returns currency 
 	 * @return
 	 */
 	public String getCurrency() {
 		return this.currency;
+	}
+	public void addAmount(int amount) {
+		this.amount += amount;
 	}
 }
