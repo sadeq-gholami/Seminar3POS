@@ -15,7 +15,6 @@ public class Amount {
 	public Amount (int amount, String currency) {
 		this.currency = currency;
 		this.amount =  amount;
-		hffffff
 	}
 	/**
 	 * returns the amount of money
@@ -24,6 +23,12 @@ public class Amount {
 	public int getAmount() {
 		return this.amount;
 	}
+	
+	public int amountSubtraction(Amount TermToSubtractWith) {
+		int sum = this.amount - TermToSubtractWith.amount;
+		return sum;
+	}
+	
 	/**
 	 * returns currency 
 	 * @return
