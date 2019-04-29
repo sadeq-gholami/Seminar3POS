@@ -30,6 +30,7 @@ public class Amount {
 	public String getCurrency() {
 		return this.currency;
 	}
+	
 	public void addAmount(int amount) {
 		this.amount += amount;
 	}

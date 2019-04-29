@@ -14,7 +14,7 @@ public class View {
 	    public void runFakeSale() {
 	        contr.startNewSale();
 	        System.out.println("New sale was started.");
-	        String itemIdentifier = "123456789";
+	        String itemIdentifier = "123654789";
 	        SaleDTO saleInfo = contr.addItem(itemIdentifier, 4);
 	        int value = saleInfo.getRunnigTotal().getAmount();
 	        System.out.println("the item was added successfully \n "
