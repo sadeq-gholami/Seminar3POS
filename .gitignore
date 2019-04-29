@@ -1,2 +1,6 @@
 /nbproject/private/
 /build/
+
+/POS/bin/se/
+/POS/bin/testpackage/**
+/lib/**
