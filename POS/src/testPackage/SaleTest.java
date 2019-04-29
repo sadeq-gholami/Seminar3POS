@@ -1,8 +1,8 @@
 package testPackage;
 import se.kth.iv1500.POS.model.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 import se.kth.iv1500.POS.DTOs.*;
 import java.util.List;
@@ -14,10 +14,10 @@ class SaleTest {
 		int quantity = 4;
 		Sale instance = new Sale();
 		SaleDTO saleInfo = instance.addItem(bread, quantity);
-		Amount runningTotal = saleInfo.getRunnigTotal();
+		Amount runningTotal = saleInfo.getRunningTotal();
 		int expRes = 4 * (int) Math.round(30+(0.2*30));
 		int result = runningTotal.getAmount();
-		assertEquals("counted wrong running total", expRes, result);
+		assertEquals(expRes, result, "counted wrong running total");
 	}
 	@Test
 	void testAddItemIsAddingItem() {
@@ -25,8 +25,8 @@ class SaleTest {
 		int quantity = 4;
 		Sale instance = new Sale();
 		SaleDTO saleInfo = instance.addItem(bread, quantity);
-	    List<ItemDTO> itemInfo = saleInfo.getIteminfo();
-		assertNotNull("the item that should be added is not added",itemInfo);
+	    List<ItemDTO> itemInfo = saleInfo.getItemInfo();
+		assertNotNull(itemInfo, "the item that should be added is not added");
 	}
 	@Test
 	void testAddItemNotReturningNull() {
@@ -34,7 +34,7 @@ class SaleTest {
 		int quantity = 4;
 		Sale instance = new Sale();
 		SaleDTO saleInfo = instance.addItem(bread, quantity);
-		assertNotNull("the item that should be add is not added",saleInfo);
+		assertNotNull(saleInfo, "the item that should be add is not added");
 	}
 	
 

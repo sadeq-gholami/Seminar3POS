@@ -1,12 +1,16 @@
 package testPackage;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import static org.junit.jupiter.api.Assertions.*;
 
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import se.kth.iv1500.POS.controller.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import se.kth.iv1500.POS.dbHandler.*;
+import se.kth.iv1500.POS.model.*;
 import se.kth.iv1500.POS.view.*;
 class ViewTest {
 	private View instance;
@@ -15,7 +19,10 @@ class ViewTest {
 	
 	@BeforeEach
 	void setUp(){
-		Controller cont = new Controller();
+		RegistryCreator regCreator = new RegistryCreator();
+		ExternalSystemGenerator extSys = new ExternalSystemGenerator();
+		CashRegister cashRegister = new CashRegister();
+		Controller cont = new Controller(regCreator, extSys, cashRegister);
 		instance = new View(cont);
 		
 		printOut = new ByteArrayOutputStream();

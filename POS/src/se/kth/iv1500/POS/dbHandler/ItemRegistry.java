@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 public class ItemRegistry {
 	private List<ItemDTO> items = new ArrayList<>();
-	private static final Amount MILKPRICE = new Amount (10,"kr");
-	private static final Amount COCACOLAPRICE = new Amount (15,"kr");
-	private static final Amount BREADPRICE = new Amount (30,"kr");
-	private static final double VAT10PERCENT = 0.1;
-	private static final double VAT15PERCENT = 0.15;
-	private static final double VAT20PERCENT = 0.2;
-	private static final String MILKITEMIDENTIFIER = "123456789";
-	private static final String COCACOLAITEMIDENTIFIER = "987654321";
-	private static final String BREADITEMIDENTIFIER = "123654789";
+	
+	private final Amount MILKPRICE = new Amount (10,"kr");
+	private final Amount COCACOLAPRICE = new Amount (15,"kr");
+	private final Amount BREADPRICE = new Amount (30,"kr");
+	private final double VAT10PERCENT = 0.1;
+	private final double VAT15PERCENT = 0.15;
+	private final double VAT20PERCENT = 0.2;
+	private final String MILKITEMIDENTIFIER = "123456789";
+	private final String COCACOLAITEMIDENTIFIER = "987654321";
+	private final String BREADITEMIDENTIFIER = "123654789";
 	
 	
 	/**

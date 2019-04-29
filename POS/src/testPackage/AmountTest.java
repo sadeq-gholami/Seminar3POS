@@ -1,5 +1,6 @@
 package testPackage;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 import se.kth.iv1500.POS.DTOs.*;
 class AmountTest {
@@ -12,7 +13,7 @@ class AmountTest {
 		amountUnderTest.addAmount(amountOfOperand2);
 		int expRes = amountOfOperand1 + amountOfOperand2;
 		int result = amountUnderTest.getAmount();
-		assertEquals ("Wrong addition result", expRes, result);
+		assertEquals (expRes, result, "Wrong addition result");
 	}
 	@Test
 	void testAddAmountNegResult() {
@@ -22,7 +23,7 @@ class AmountTest {
 		amountUnderTest.addAmount(amountOfOperand2);
 		int expRes = amountOfOperand1 + amountOfOperand2;
 		int result = amountUnderTest.getAmount();
-		assertEquals ("Wrong addition result", expRes, result);
+		assertEquals (expRes, result, "Wrong addition result");
 	}
 	@Test
 	void testAddAmountNZeorRes() {
@@ -32,7 +33,7 @@ class AmountTest {
 		amountUnderTest.addAmount(amountOfOperand2);
 		int expRes = amountOfOperand1 + amountOfOperand2;
 		int result = amountUnderTest.getAmount();
-		assertEquals ("Wrong addition result", expRes, result);
+		assertEquals (expRes, result, "Wrong addition result");
 	}
 
 }

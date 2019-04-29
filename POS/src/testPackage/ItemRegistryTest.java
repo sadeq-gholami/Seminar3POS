@@ -1,6 +1,7 @@
 package testPackage;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 import se.kth.iv1500.POS.DTOs.*;
 import se.kth.iv1500.POS.dbHandler.*;
@@ -13,7 +14,7 @@ class ItemRegistryTest {
 		ItemDTO returnedObject = instance.findItem(breadIdentifier);
 		String expRes = breadIdentifier;
 		String result = returnedObject.getItemIdentifier();
-		assertEquals ("Available item was not found", expRes, result);
+		assertEquals (expRes, result, "Available item was not found");
 	}
 	
 	@Test
@@ -22,7 +23,7 @@ class ItemRegistryTest {
 		ItemRegistry instance = new ItemRegistry ();
 		ItemDTO expRes = null;
 		ItemDTO result = instance.findItem(wrongId);
-		assertEquals ("An item with wrong identification was found", expRes, result);
+		assertEquals (expRes, result, "An item with wrong identification was found");
 	}
 
 

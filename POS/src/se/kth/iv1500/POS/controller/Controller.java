@@ -11,13 +11,15 @@ public class Controller {
 	    private Sale sale;
 	    private ExternalSystemGenerator extSys;
 	    private CashRegister cashRegister;
+	    private RegistryCreator regCreator;
 	    /**
 	     * Creates an instance of Controller which connects all the calls from view to classes in model and
 	     * classes in integration layer
 	     */
-	    public Controller(ExternalSystemGenerator extSys, CashRegister cashRegister) {
+	    public Controller(RegistryCreator regCreator, ExternalSystemGenerator extSys, CashRegister cashRegister) {
 	    	this.cashRegister = cashRegister;
 	    	this.extSys = extSys;
+	    	this.regCreator = regCreator;
 	    }
 	    
 	    /**
@@ -36,7 +38,7 @@ public class Controller {
 	     */
 	    public SaleDTO addItem(String itemIdentifier, int itemQuantity) {
 	    	SaleDTO currentSale = null; 
-	    	ItemRegistry itemRegistry = new ItemRegistry();
+	    	ItemRegistry itemRegistry =  regCreator.getItemRegistry();
 	    	ItemDTO itemInfo = itemRegistry.findItem(itemIdentifier);
 	    	if (itemInfo != null) {
 	    		currentSale = this.sale.addItem(itemInfo, itemQuantity);

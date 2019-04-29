@@ -1,22 +1,26 @@
 package testPackage;
-import se.kth.iv1500.POS.DTOs.*;
-import static org.junit.Assert.assertNotNull;
+
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.List;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
 import se.kth.iv1500.POS.controller.*;
-import se.kth.iv1500.POS.model.Sale;
+import se.kth.iv1500.POS.DTOs.*;
+import se.kth.iv1500.POS.dbHandler.*;
+import se.kth.iv1500.POS.model.*;
 class ControllerTest {
 	private Controller instanceCont;
 	private Sale newSale;
 	
 	@BeforeEach
 	public void setUp() {
-		this.instanceCont = new Controller();
+		RegistryCreator regCreator = new RegistryCreator();
+		ExternalSystemGenerator extSys = new ExternalSystemGenerator();
+		CashRegister cashRegister = new CashRegister(); 
+		this.instanceCont = new Controller(regCreator, extSys, cashRegister);
 		this.newSale = instanceCont.startNewSale();
 	}
 	
@@ -28,7 +32,7 @@ class ControllerTest {
 	
 	@Test
 	void testStartNewSale() {
-		assertNotNull("New sale was not started", newSale);
+		assertNotNull(newSale, "New sale was not started");
 	}
 
 	@Test
@@ -36,7 +40,7 @@ class ControllerTest {
 		String milkId = "123456789";
 		int itemQuantity = 4;
 		SaleDTO saleInfo = instanceCont.addItem(milkId, itemQuantity);
-		List<ItemDTO> itemInfo = saleInfo.getIteminfo();
+		List<ItemDTO> itemInfo = saleInfo.getItemInfo();
 		ItemDTO addedItem = itemInfo.get(0);
 		String result = addedItem.getName();
 		String expRes = "milk";

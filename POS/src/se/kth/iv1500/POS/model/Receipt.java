@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Receipt {
 	private final SaleDTO saleInfo;
-	private StoreDTO storeInfo;
+	//private StoreDTO storeInfo;
 	
 	public Receipt(SaleDTO saleInfo) {
 		this.saleInfo = saleInfo;
