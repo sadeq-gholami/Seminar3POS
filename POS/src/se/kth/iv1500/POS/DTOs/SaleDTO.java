@@ -11,18 +11,15 @@ import java.util.List;
 public class SaleDTO {
 	private Amount runningTotal;
 	private List<ItemDTO> itemsInCurrentSale = new ArrayList<>();
-	private String dateAndTime;
 	
 	/**
 	 * creates a new instance representing a new sale; 
 	 * @param  runningTotal     total price after scanning each item
-	 * @param  itemInfo         an instance of itemDTO which is a place holder for information about an item 
-	 * @param  dateAndTime     	the date and time of the running sale       	  
+	 * @param  itemInfo         an instance of itemDTO which is a place holder for information about an item      	  
 	 */
-	public SaleDTO(Amount runningTotal,List <ItemDTO> itemInfo, String dateAndTime) {
+	public SaleDTO(Amount runningTotal,List <ItemDTO> itemInfo) {
 		this.runningTotal = runningTotal;
 		this.itemsInCurrentSale = itemInfo;
-		this.dateAndTime = dateAndTime;
 	}
 	
 	/**
@@ -40,14 +37,4 @@ public class SaleDTO {
 	public List<ItemDTO> getIteminfo() {
 		return this.itemsInCurrentSale;
 	}
-	
-	/**
-	 * returns the date and time of the running sale 
-	 *@return the date and tisdfghjklöä'me of sale
-	 */
-	public String getdateAndTime() {
-		return this.dateAndTime;
-	}
-	
-	
 }

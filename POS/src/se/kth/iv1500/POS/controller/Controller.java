@@ -6,24 +6,11 @@ package se.kth.iv1500.POS.controller;
 import se.kth.iv1500.POS.model.*;
 import se.kth.iv1500.POS.DTOs.*;
 import se.kth.iv1500.POS.dbHandler.*;
-/**
-<<<<<<< HEAD
- * @author Zeineb
-=======
- * @author Sadeq
-<<<<<<< HEAD
-<<<<<<< HEAD
- *i add a commnet in controller class
-=======
-=======
->>>>>>> master
->>>>>>> master
- *
->>>>>>> master
- * 
- */
+
 public class Controller {
 	    private Sale sale;
+	    private ExternalSystemGenerator extSys;
+	    private CashRegister cashRegister;
 	    /**
 	     * Creates an instance of Controller which connects all the calls from view to classes in model and
 	     * classes in integration layer
@@ -54,5 +41,12 @@ public class Controller {
 	    		
 	    	}
 	    	return currentSale;
+	    }
+	    
+	    public void pay(Amount amtPaid) {
+	    	CashPayment payment = new CashPayment(amtPaid);
+	    	sale.countPayment(amtPaid);
+	    	cashRegister.recordPayment(payment);
+	    	sale.printReceipt(extSys.getPrinter());
 	    }
 }

@@ -18,6 +18,8 @@ public class View {
 	        SaleDTO saleInfo = contr.addItem(itemIdentifier, 4);
 	        int value = saleInfo.getRunnigTotal().getAmount();
 	        System.out.println("the item was added successfully \n "
-	        		+ "running total is:" + value);        
+	        		+ "running total is:" + value); 
+	        contr.pay(new Amount(200, "kr"));
+	        System.out.println("The pay has been handled");
 	    }
 }

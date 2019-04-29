@@ -1,15 +1,15 @@
 package se.kth.iv1500.POS.model;
 import se.kth.iv1500.POS.DTOs.*;
+import se.kth.iv1500.POS.dbHandler.Printer;
 import java.util.ArrayList;
 import java.util.List;
 public class Sale {
 	private Amount runningTotal = new Amount(0,"kr");
 	private List<ItemDTO> itemsInCurrentSale = new ArrayList<>();
 	private Amount change;
-	private String dateAndtime;
 	
 	/**
-	 * Creats an instance of sale
+	 * Creates an instance of sale
 	 */
 	public Sale() {
 		
@@ -24,7 +24,7 @@ public class Sale {
 	public SaleDTO addItem(ItemDTO itemInfo, int quantity) {
 		this.itemsInCurrentSale.add(itemInfo);
 		updateRunningTotal(itemInfo, quantity);
-		return new SaleDTO(this.runningTotal, this.itemsInCurrentSale, this.dateAndtime);
+		return new SaleDTO(this.runningTotal, this.itemsInCurrentSale);
 		
 	}
 	private void updateRunningTotal(ItemDTO itemInfo, int quantity) {
@@ -41,5 +41,19 @@ public class Sale {
 		int roundedPriceAfterVat = (int) Math.round(priceIncludingVAT);
 		return new Amount(roundedPriceAfterVat,"kr");
 	}
+	
+	public void countPayment(Amount amountPaid) {
+		int amountInChange = runningTotal.amountSubtraction(amountPaid);
+		change.setAmount(amountInChange);
 	}
+	
+	/**
+	* Prints a receipt for the current sale on the
+	* specified printer.
+	*/
+	public void printReceipt(Printer printer) {
+		Receipt receipt = new Receipt(SaleDTO saleInfo);
+		printer.printReceipt(receipt);
+	}
+}
 	
