@@ -11,8 +11,15 @@ import se.kth.iv1500.POS.dbHandler.*;
  * @author Zeineb
 =======
  * @author Sadeq
+<<<<<<< HEAD
+<<<<<<< HEAD
+ *i add a commnet in controller class
+=======
+=======
+>>>>>>> master
 >>>>>>> master
  *
+>>>>>>> master
  * 
  */
 public class Controller {

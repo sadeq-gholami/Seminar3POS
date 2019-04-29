@@ -15,6 +15,7 @@ public class Amount {
 	public Amount (int amount, String currency) {
 		this.currency = currency;
 		this.amount =  amount;
+		hffffff
 	}
 	/**
 	 * returns the amount of money
