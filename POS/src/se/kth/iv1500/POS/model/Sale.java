@@ -44,7 +44,7 @@ public class Sale {
 	
 	public void countPayment(Amount amountPaid) {
 		int amountInChange = runningTotal.amountSubtraction(amountPaid);
-		change.setAmount(amountInChange);
+		change = new Amount(amountInChange, "kr");
 	}
 	
 	/**
