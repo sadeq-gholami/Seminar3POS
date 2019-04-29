@@ -16,7 +16,7 @@ public class View {
 	        System.out.println("New sale was started.");
 	        String itemIdentifier = "123654789";
 	        SaleDTO saleInfo = contr.addItem(itemIdentifier, 4);
-	        int value = saleInfo.getRunnigTotal().getAmount();
+	        int value = saleInfo.getRunningTotal().getAmount();
 	        System.out.println("the item was added successfully \n "
 	        		+ "running total is:" + value); 
 	        Amount change = contr.pay(new Amount(200, "kr"));

@@ -25,7 +25,7 @@ public class Sale {
 	public SaleDTO addItem(ItemDTO itemInfo, int quantity) {
 		this.itemsInCurrentSale.add(itemInfo);
 		updateRunningTotal(itemInfo, quantity);
-		saleInfo = new SaleDTO(this.runningTotal, this.itemsInCurrentSale);
+		saleInfo = new SaleDTO(this.runningTotal, this.itemsInCurrentSale, this.change);
 		return saleInfo;
 	}
 	private void updateRunningTotal(ItemDTO itemInfo, int quantity) {
@@ -46,6 +46,7 @@ public class Sale {
 	public Amount countPayment(Amount amountPaid) {
 		int amountInChange = amountPaid.amountSubtraction(this.runningTotal);
 		change = new Amount(amountInChange, "kr");
+		this.saleInfo = new SaleDTO(this.runningTotal, this.itemsInCurrentSale, this.change);
 		return change;
 	}
 	
@@ -55,6 +56,7 @@ public class Sale {
 	*/
 	public void printReceipt(Printer printer) {
 		Receipt receipt = new Receipt(saleInfo);
+		System.out.println(receipt.createReceiptString());
 		printer.printReceipt(receipt);
 	}
 }

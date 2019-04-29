@@ -49,7 +49,8 @@ public class Controller {
 	    	Amount change = sale.countPayment(amtPaid);
 	    	CashPayment payment = new CashPayment(amtPaid);
 	    	cashRegister.recordPayment(payment);
-	    	//sale.printReceipt(extSys.getPrinter());
+	    	Printer printer = extSys.getPrinter();
+	    	sale.printReceipt(printer);
 	    	return change;
 	    }
 }

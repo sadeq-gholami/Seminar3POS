@@ -9,21 +9,16 @@ public class Receipt {
 	private final SaleDTO saleInfo;
 	private StoreDTO storeInfo;
 	
-	Receipt(SaleDTO saleInfo) {
+	public Receipt(SaleDTO saleInfo) {
 		this.saleInfo = saleInfo;
 	}
 	
-	public StoreDTO getstoreInfo(){
-		this.storeInfo = getStoreInformation();
-		return storeInfo;
-	}
-	
-	private ItemDTO iteratorForTheIteminformationLoop() {
+	/*private ItemDTO iteratorForTheIteminformationLoop() {
 		Iterator<ItemDTO> iterator = itemsincurrentsale.iterator();
 		while(iterator.hasNext()) {
 			ItemDTO next = iterator.next();
 		}
-	}
+	}*/
 	
 	 /**
 	 * Creates a well-formatted string with the entire content
@@ -41,15 +36,11 @@ public class Receipt {
 		 appendLine(builder, saleTime.toString());
 		 endSection(builder);
 		 
-		 builder.append("Store: ");
-		 appendLine(builder, storeInfo);
-		 endSection(builder);
-		 
-		 for(ItemDTO next : itemsincurrentsale) {
+		 for(ItemDTO next : saleInfo.getItemInfo()) {
 			 builder.append("Bought item: ");
-			 appendLine(builder, saleInfo.getItemInfo().getName();
+			 appendLine(builder, next.getName());
 			 builder.append("Price: ");
-			 appendLine(builder, saleInfo.getItemInfo().getPrice().toString());
+			 appendLine(builder, next.getPrice().toString());
 			 endSection(builder);
 		 }
 		 
@@ -58,12 +49,14 @@ public class Receipt {
 		 endSection(builder);
 		 
 		 builder.append("Amount paid: ");
-		 appendLine(builder, saleInfo.getRunningTotal().toString());
+		 appendLine(builder, calculateAmountPaid(saleInfo));
 		 endSection(builder);
 		 
 		 builder.append("Change: ");
-		 appendLine(builder, saleInfo.getChange().countPayment());
+		 appendLine(builder, saleInfo.getChange().toString());
 		 endSection(builder);
+		 
+		 return builder.toString();
 	 }
 		 
 		 private void appendLine(StringBuilder builder, String line) {
@@ -73,5 +66,12 @@ public class Receipt {
 			
 		 private void endSection(StringBuilder builder) {
 			 builder.append("\n");
+		 }
+		 
+		 private String calculateAmountPaid(SaleDTO saleInfo) {
+			 int change = saleInfo.getChange().getAmount();
+			 int totalPrice = saleInfo.getRunningTotal().getAmount();
+			 int amountPaid = change + totalPrice;
+			 return amountPaid + " ";
 		 }
 }
