@@ -7,9 +7,6 @@ public class StoreDTO {
     public StoreDTO (String name, String adress){
         this.name=name;
         this.adress= adress;
-
-
-
-
     }
+    public String
 }
