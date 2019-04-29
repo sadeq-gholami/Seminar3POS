@@ -15,7 +15,9 @@ public class Controller {
 	     * Creates an instance of Controller which connects all the calls from view to classes in model and
 	     * classes in integration layer
 	     */
-	    public Controller() {
+	    public Controller(ExternalSystemGenerator extSys, CashRegister cashRegister) {
+	    	this.cashRegister = cashRegister;
+	    	this.extSys = extSys;
 	    }
 	    
 	    /**
@@ -43,10 +45,11 @@ public class Controller {
 	    	return currentSale;
 	    }
 	    
-	    public void pay(Amount amtPaid) {
+	    public Amount pay(Amount amtPaid) {
+	    	Amount change = sale.countPayment(amtPaid);
 	    	CashPayment payment = new CashPayment(amtPaid);
-	    	sale.countPayment(amtPaid);
 	    	cashRegister.recordPayment(payment);
-	    	sale.printReceipt(extSys.getPrinter());
+	    	//sale.printReceipt(extSys.getPrinter());
+	    	return change;
 	    }
 }

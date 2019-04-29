@@ -19,7 +19,7 @@ public class View {
 	        int value = saleInfo.getRunnigTotal().getAmount();
 	        System.out.println("the item was added successfully \n "
 	        		+ "running total is:" + value); 
-	        contr.pay(new Amount(200, "kr"));
-	        System.out.println("The pay has been handled");
+	        Amount change = contr.pay(new Amount(200, "kr"));
+	        System.out.println("The pay has been handled. Change is equal to " + change);
 	    }
 }

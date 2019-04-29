@@ -25,8 +25,12 @@ public class Amount {
 	}
 	
 	public int amountSubtraction(Amount TermToSubtractWith) {
-		int sum = this.amount - TermToSubtractWith.amount;
-		return sum;
+		int diff = this.amount - TermToSubtractWith.amount;
+		return diff;
+	}
+	
+	public String toString() {
+		return this.amount + " " + this.currency;
 	}
 	
 	/**

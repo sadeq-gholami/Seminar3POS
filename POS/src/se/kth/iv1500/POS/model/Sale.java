@@ -7,6 +7,7 @@ public class Sale {
 	private Amount runningTotal = new Amount(0,"kr");
 	private List<ItemDTO> itemsInCurrentSale = new ArrayList<>();
 	private Amount change;
+	private SaleDTO saleInfo;
 	
 	/**
 	 * Creates an instance of sale
@@ -24,8 +25,8 @@ public class Sale {
 	public SaleDTO addItem(ItemDTO itemInfo, int quantity) {
 		this.itemsInCurrentSale.add(itemInfo);
 		updateRunningTotal(itemInfo, quantity);
-		return new SaleDTO(this.runningTotal, this.itemsInCurrentSale);
-		
+		saleInfo = new SaleDTO(this.runningTotal, this.itemsInCurrentSale);
+		return saleInfo;
 	}
 	private void updateRunningTotal(ItemDTO itemInfo, int quantity) {
 		Amount priceAfterVat = this.countItemPriceIncludinVAT(itemInfo);
@@ -42,9 +43,10 @@ public class Sale {
 		return new Amount(roundedPriceAfterVat,"kr");
 	}
 	
-	public void countPayment(Amount amountPaid) {
-		int amountInChange = runningTotal.amountSubtraction(amountPaid);
+	public Amount countPayment(Amount amountPaid) {
+		int amountInChange = amountPaid.amountSubtraction(this.runningTotal);
 		change = new Amount(amountInChange, "kr");
+		return change;
 	}
 	
 	/**
@@ -52,7 +54,7 @@ public class Sale {
 	* specified printer.
 	*/
 	public void printReceipt(Printer printer) {
-		Receipt receipt = new Receipt(SaleDTO saleInfo);
+		Receipt receipt = new Receipt(saleInfo);
 		printer.printReceipt(receipt);
 	}
 }

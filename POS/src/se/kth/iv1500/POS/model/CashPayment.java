@@ -7,10 +7,5 @@ public class CashPayment {
 	public CashPayment(Amount amtPaid) {
 		this.amtPaid = amtPaid;
 	}
-	
-	/*public Amount getChange() {
-		Amount totalCost = getRunningTotal();
-		return totalCost.amountSubtraction(amtPaid);
-	}*/
 
 }
