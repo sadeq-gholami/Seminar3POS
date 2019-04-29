@@ -41,8 +41,8 @@ public class Controller {
 	    	ItemRegistry itemRegistry =  regCreator.getItemRegistry();
 	    	ItemDTO itemInfo = itemRegistry.findItem(itemIdentifier);
 	    	if (itemInfo != null) {
-	    		currentSale = this.sale.addItem(itemInfo, itemQuantity);
-	    		
+	    		itemInfo.setItemQuantity(itemQuantity);
+	    		currentSale = this.sale.addItem(itemInfo);	    		
 	    	}
 	    	return currentSale;
 	    }

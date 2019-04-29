@@ -22,8 +22,9 @@ public class Sale {
 	 * @param quantity the number of items to be added
 	 * @return an instance of <code>SaleDTO</code> that contains information about current sale
 	 */
-	public SaleDTO addItem(ItemDTO itemInfo, int quantity) {
+	public SaleDTO addItem(ItemDTO itemInfo) {
 		this.itemsInCurrentSale.add(itemInfo);
+		int quantity = itemInfo.getItemQuantity();
 		updateRunningTotal(itemInfo, quantity);
 		saleInfo = new SaleDTO(this.runningTotal, this.itemsInCurrentSale, this.change);
 		return saleInfo;

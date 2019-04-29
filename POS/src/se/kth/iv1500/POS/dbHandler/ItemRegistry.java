@@ -34,6 +34,7 @@ public class ItemRegistry {
 				itemInfo = item;
 			}
 		}
+		
 		return itemInfo;
 	}
 	

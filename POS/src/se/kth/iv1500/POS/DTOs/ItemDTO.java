@@ -9,6 +9,7 @@ public class ItemDTO {
 	private Amount price;
 	private double vatRate;
 	private String itemIdentifier;
+	private int itemQuantity;
 	
 	/**
 	 * creates a new instans representing a new item; 
@@ -55,5 +56,14 @@ public class ItemDTO {
 	public String  getItemIdentifier() {
 		return this.itemIdentifier;
 	}
-
+	/**
+	 * sets the number of items that should be added to a sale
+	 * @param itemQuantity the number of items to be added
+	 */
+	public void setItemQuantity(int itemQuantity) {
+		this.itemQuantity = itemQuantity;
+	}
+	public int getItemQuantity() {
+		return this.itemQuantity;
+	}
 }

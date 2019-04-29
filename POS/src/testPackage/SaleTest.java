@@ -12,8 +12,9 @@ class SaleTest {
 	void testAddItemUpdateRunningTotal() {
 		ItemDTO bread = new ItemDTO("bread",new Amount(30 ,"kr"), 0.2,"123654789");
 		int quantity = 4;
+		bread.setItemQuantity(quantity);
 		Sale instance = new Sale();
-		SaleDTO saleInfo = instance.addItem(bread, quantity);
+		SaleDTO saleInfo = instance.addItem(bread);
 		Amount runningTotal = saleInfo.getRunningTotal();
 		int expRes = 4 * (int) Math.round(30+(0.2*30));
 		int result = runningTotal.getAmount();
@@ -23,17 +24,17 @@ class SaleTest {
 	void testAddItemIsAddingItem() {
 		ItemDTO bread = new ItemDTO("bread",new Amount(30 ,"kr"), 0.2,"123654789");
 		int quantity = 4;
+		bread.setItemQuantity(quantity);
 		Sale instance = new Sale();
-		SaleDTO saleInfo = instance.addItem(bread, quantity);
+		SaleDTO saleInfo = instance.addItem(bread);
 	    List<ItemDTO> itemInfo = saleInfo.getItemInfo();
 		assertNotNull(itemInfo, "the item that should be added is not added");
 	}
 	@Test
 	void testAddItemNotReturningNull() {
 		ItemDTO bread = new ItemDTO("bread",new Amount(30 ,"kr"), 0.2,"123654789");
-		int quantity = 4;
 		Sale instance = new Sale();
-		SaleDTO saleInfo = instance.addItem(bread, quantity);
+		SaleDTO saleInfo = instance.addItem(bread);
 		assertNotNull(saleInfo, "the item that should be add is not added");
 	}
 	
