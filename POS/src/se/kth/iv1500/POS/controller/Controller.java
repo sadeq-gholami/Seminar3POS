@@ -46,7 +46,11 @@ public class Controller {
 	    	}
 	    	return currentSale;
 	    }
-	    
+	    /**
+	     * Starts a discount request in current sale
+	     * @param CustomerID is a string that represent the Customer identification
+	     * @return returns the object Amount and contains the total price
+	     */
 	    public Amount discountRequest(String CustomerID){
 	    	CustomerRegistry customerRegistry = regCreator.getCustomerRegistry();
 	        Amount totalPriceAfterDiscount = sale.countDiscount(CustomerID, customerRegistry);
