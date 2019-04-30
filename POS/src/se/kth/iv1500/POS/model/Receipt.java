@@ -85,8 +85,8 @@ public class Receipt {
 		 
 		 private Amount calculateAmountPaid(SaleDTO saleInfo) {
 			 int change = saleInfo.getChange().getAmount();
-			 int totalPrice = saleInfo.getRunningTotal().getAmount();
-			 int amountPaid = change + totalPrice;
+			 int totalPriceafterDiscount = saleInfo.getTotalPriceAfterDiscount().getAmount();
+			 int amountPaid = change + totalPriceafterDiscount;
 			 return new Amount(amountPaid, "kr");
 		 }
 		 

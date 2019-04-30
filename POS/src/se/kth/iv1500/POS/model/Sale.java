@@ -73,7 +73,7 @@ public class Sale {
 	 * @return returns the change amount
 	 */
 	public Amount countPayment(Amount amountPaid) {
-		int amountInChange = amountPaid.amountSubtraction(this.runningTotal);
+		int amountInChange = amountPaid.amountSubtraction(this.totalPriceAfterDiscount);
 		change = new Amount(amountInChange, "kr");
 		saleInfo = new SaleDTO(this.runningTotal, this.itemsInCurrentSale, this.change, this.totalPriceAfterDiscount);
 		return change;

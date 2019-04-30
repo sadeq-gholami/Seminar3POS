@@ -58,17 +58,28 @@ class ControllerTest {
 	}
 	
 	@Test
-	void testPay() {
+	void testPayWhenCustomerIsAMember() {
 		
-		String milkId = "123456789";
-		int itemQuantity = 10;
-		SaleDTO saleInfo = instanceCont.addItem(milkId, itemQuantity);
+		String bread = "123654789";
+		int itemQuantity = 3;
+		SaleDTO saleInfo = instanceCont.addItem(bread, itemQuantity);
+		instanceCont.discountRequest("123ABC");
+		Amount result = instanceCont.pay(new Amount(200,"kr"));
+		assertEquals(124, result.getAmount(),"Should give customer discount and change should be correct." );
+
+	}
+	
+	@Test
+	void testPayWhenCustomerIsNotMember() {
 		
-		instanceCont.discountRequest("CustomerID1");
+		String bread = "123654789";
+		int itemQuantity = 3;
+		SaleDTO saleInfo = instanceCont.addItem(bread, itemQuantity);
 		
+		instanceCont.discountRequest("NON_MEMBER_CUSTOMER");
 		Amount result = instanceCont.pay(new Amount(200,"kr"));
 		
-		assertEquals(90, result.getAmount(),"should give customer discount and change should be correct." );
+		assertEquals(108, result.getAmount(),"Should give customer discount and change should be correct." );
 
 	}
 	
