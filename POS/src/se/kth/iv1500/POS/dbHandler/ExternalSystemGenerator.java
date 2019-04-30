@@ -4,8 +4,8 @@ package se.kth.iv1500.POS.dbHandler;
 */
 public class ExternalSystemGenerator {
 	/**
-	 * creates an instance of external registry creator
-	 * 
+	 * Get the value of the printer
+	 * @return the value of the printer
 	 */
 	public Printer getPrinter() {
 		return new Printer();
