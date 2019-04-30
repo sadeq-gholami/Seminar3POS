@@ -24,6 +24,11 @@ public class Amount {
 		return this.amount;
 	}
 	
+	/**
+	 * Performs subtraction on specified amount objects
+	 * @param TermToSubtractWith the term that is the subtractor
+	 * @return Difference after the subtraction operation
+	 */
 	public int amountSubtraction(Amount TermToSubtractWith) {
 		int diff = this.amount - TermToSubtractWith.amount;
 		return diff;
