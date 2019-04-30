@@ -1,6 +1,6 @@
 package se.kth.iv1500.POS.model;
 import se.kth.iv1500.POS.DTOs.*;
-import se.kth.iv1500.POS.dbHandler.Printer;
+import se.kth.iv1500.POS.dbHandler.*;
 import java.util.ArrayList;
 import java.util.List;
 public class Sale {
@@ -42,6 +42,19 @@ public class Sale {
 		double priceIncludingVAT = amountOfPrice +(amountOfPrice * vatRate);
 		int roundedPriceAfterVat = (int) Math.round(priceIncludingVAT);
 		return new Amount(roundedPriceAfterVat,"kr");
+	}
+	public Amount countDiscount(String customerID,CustomerRegistry customerRegistry){
+		DiscountRules discountRules = new DiscountRules();
+		Amount totalAmount = this.runningTotal;
+		double totalPriceAfterDiscount = totalAmount.getAmount();
+		if(customerRegistry.isEligible(customerID)){
+			totalPriceAfterDiscount = totalPriceAfterDiscount * (1- discountRules.discountRateMember(this.saleInfo));
+		}
+		else{
+			totalPriceAfterDiscount = totalPriceAfterDiscount * (1 - discountRules.discountRateNotMember(this.saleInfo));
+		}
+		int roundedPriceAfterDiscount = (int) Math.round(totalPriceAfterDiscount);
+		return new Amount(roundedPriceAfterDiscount,"kr");
 	}
 	
 	/**

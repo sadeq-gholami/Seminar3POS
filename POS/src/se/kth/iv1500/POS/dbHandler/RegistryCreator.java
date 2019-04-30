@@ -15,5 +15,8 @@ public class RegistryCreator {
 	public ItemRegistry getItemRegistry() {
 		return new ItemRegistry();
 	}
+	public CustomerRegistry getCustomerRegistry() {
+		return new CustomerRegistry();
+	}
 
 }

@@ -47,6 +47,12 @@ public class Controller {
 	    	return currentSale;
 	    }
 	    
+	    public Amount discountRequest(String CustomerID){
+	    	CustomerRegistry customerRegistry = regCreator.getCustomerRegistry();
+	        Amount totalPriceAfterDiscount = sale.countDiscount(CustomerID, customerRegistry);
+	    	return totalPriceAfterDiscount;
+		}
+	    
 	    public Amount pay(Amount amtPaid) {
 	    	Amount change = sale.countPayment(amtPaid);
 	    	CashPayment payment = new CashPayment(amtPaid);
