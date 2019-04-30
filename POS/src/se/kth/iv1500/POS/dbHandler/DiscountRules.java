@@ -2,7 +2,9 @@ package se.kth.iv1500.POS.dbHandler;
 import se.kth.iv1500.POS.DTOs.*;
 
 import java.util.List;
-
+/*
+ * This class is responsible for the discount conditions
+ */
 public class DiscountRules {
     private final int ITEMQUANTETYFORDISCOUNT = 4;
     private final double FIVEPROCENTDISCOUNT = 0.05;
@@ -11,7 +13,11 @@ public class DiscountRules {
     private final double THIRTYROCENTDISOCUNT = 0.3;
 
 
-
+    /**
+     * Counts the sum of the available discounts for members
+     * @param saleInfo holds the information of the sale
+     * @return returns the discount of the data-type double and contains the percentage for discount 
+     */
     public double discountRateMember(SaleDTO saleInfo ){
         double discount = 0.0;
         Amount totalAmount = saleInfo.getRunningTotal();
@@ -28,8 +34,12 @@ public class DiscountRules {
             discount = discount + THIRTYROCENTDISOCUNT;
         }
         return discount;
-
     }
+    /**
+     *  Counts the sum of the available discounts for non members
+     * @param saleInfo holds the information of the sale
+     * @return the discount of the data-type double and contains the percentage for discount
+     */
     public  double discountRateNotMember(SaleDTO saleInfo){
         double discount = 0.0;
         Amount totalAmount = saleInfo.getRunningTotal();
