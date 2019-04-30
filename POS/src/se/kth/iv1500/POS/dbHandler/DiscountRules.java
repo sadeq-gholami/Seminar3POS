@@ -2,9 +2,11 @@ package se.kth.iv1500.POS.dbHandler;
 import se.kth.iv1500.POS.DTOs.*;
 
 import java.util.List;
-/*
- * This class is responsible for the discount conditions
- */
+/**
+*
+* @author Mohamed Mahdi
+* This class is responsible for the discount conditions
+*/
 public class DiscountRules {
     private final int ITEMQUANTETYFORDISCOUNT = 4;
     private final double FIVEPROCENTDISCOUNT = 0.05;
