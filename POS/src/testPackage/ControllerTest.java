@@ -57,6 +57,21 @@ class ControllerTest {
 		assertNull(saleInfo, "the returned object with ivalidId is not null");
 	}
 	
+	@Test
+	void testPay() {
+		
+		String milkId = "123456789";
+		int itemQuantity = 10;
+		SaleDTO saleInfo = instanceCont.addItem(milkId, itemQuantity);
+		
+		instanceCont.discountRequest("CustomerID1");
+		
+		Amount result = instanceCont.pay(new Amount(200,"kr"));
+		
+		assertEquals(90, result.getAmount(),"should give customer discount and change should be correct." );
+
+	}
+	
 	
 
 }
