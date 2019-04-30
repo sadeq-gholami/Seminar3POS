@@ -10,6 +10,11 @@ public class Receipt {
 	private int VATForEntireSale;
 	//private StoreDTO storeInfo;
 	
+	/**
+	* Creates a new instance.
+	*
+	* @param saleInfo The sale proved by this receipt.
+	*/
 	public Receipt(SaleDTO saleInfo) {
 		this.saleInfo = saleInfo;
 	}

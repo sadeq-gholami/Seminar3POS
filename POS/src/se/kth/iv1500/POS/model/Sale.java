@@ -44,6 +44,13 @@ public class Sale {
 		return new Amount(roundedPriceAfterVat,"kr");
 	}
 	
+	/**
+	 * calculates the change amount to return to a customer.
+	 * And creates an instance of <code>SaleDTO</code> that contains information about current sale,
+	 * including the change amount
+	 * @param amountPaid by the customer
+	 * @return returns the change amount
+	 */
 	public Amount countPayment(Amount amountPaid) {
 		int amountInChange = amountPaid.amountSubtraction(this.runningTotal);
 		change = new Amount(amountInChange, "kr");
