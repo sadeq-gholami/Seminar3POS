@@ -44,6 +44,12 @@ public class Sale {
 		int roundedPriceAfterVat = (int) Math.round(priceIncludingVAT);
 		return new Amount(roundedPriceAfterVat,"kr");
 	}
+	/**
+	 * Checks if the customer is a member or not and subtracts the amount discount from the total price   
+	 * @param customerID A CustomerID as String that represent the customer identification
+	 * @param customerRegistry Is a database where Customers are saved
+	 * @return Amount Total price 
+	 */
 	public Amount countDiscount(String customerID,CustomerRegistry customerRegistry){
 		DiscountRules discountRules = new DiscountRules();
 		Amount totalAmount = this.runningTotal;
