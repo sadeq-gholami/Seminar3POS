@@ -1,6 +1,4 @@
-/nbproject/private/
-/build/
-
-/POS/bin/se/
-/POS/bin/testpackage/**
-/lib/**
+*.swp
+*.class
+*.classpath
+/POS/bin/*
