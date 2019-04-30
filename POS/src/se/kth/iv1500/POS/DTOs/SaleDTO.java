@@ -12,16 +12,18 @@ public class SaleDTO {
 	private Amount runningTotal;
 	private List<ItemDTO> itemsInCurrentSale = new ArrayList<>();
 	private Amount change;
+	private Amount totalPriceAfterDiscount;
 	
 	/**
 	 * creates a new instance representing a new sale; 
 	 * @param  runningTotal     total price after scanning each item
 	 * @param  itemInfo         an instance of itemDTO which is a place holder for information about an item      	  
 	 */
-	public SaleDTO(Amount runningTotal,List <ItemDTO> itemInfo, Amount change) {
+	public SaleDTO(Amount runningTotal,List <ItemDTO> itemInfo, Amount change, Amount totalPriceAfterDiscount) {
 		this.runningTotal = runningTotal;
 		this.itemsInCurrentSale = itemInfo;
 		this.change = change;
+		this.totalPriceAfterDiscount = totalPriceAfterDiscount;
 	}
 	
 	/**
@@ -42,5 +44,10 @@ public class SaleDTO {
 	 */
 	public List<ItemDTO> getItemInfo() {
 		return this.itemsInCurrentSale;
+	}
+	
+	
+	public Amount getTotalPriceAfterDiscount() {
+		return this.totalPriceAfterDiscount;
 	}
 }

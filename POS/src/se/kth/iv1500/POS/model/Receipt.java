@@ -51,6 +51,11 @@ public class Receipt {
 		 appendLine(builder, saleInfo.getRunningTotal().toString());
 		 endSection(builder);
 		 
+		 builder.append("Total price after discount: ");
+		 Amount totalPriceAfterDiscount = saleInfo.getTotalPriceAfterDiscount();
+		 appendLine(builder, totalPriceAfterDiscount.toString());
+		 endSection(builder);
+		 
 		 builder.append("VAT for Entire Sale: ");
 		 appendLine(builder, new Amount(VATForEntireSale, "kr").toString());
 		 endSection(builder);

@@ -7,6 +7,7 @@ public class Sale {
 	private Amount runningTotal = new Amount(0,"kr");
 	private List<ItemDTO> itemsInCurrentSale = new ArrayList<>();
 	private Amount change;
+	private Amount totalPriceAfterDiscount;
 	private SaleDTO saleInfo;
 	
 	/**
@@ -26,7 +27,7 @@ public class Sale {
 		this.itemsInCurrentSale.add(itemInfo);
 		int quantity = itemInfo.getItemQuantity();
 		updateRunningTotal(itemInfo, quantity);
-		saleInfo = new SaleDTO(this.runningTotal, this.itemsInCurrentSale, this.change);
+		saleInfo = new SaleDTO(this.runningTotal, this.itemsInCurrentSale, this.change, this.totalPriceAfterDiscount);
 		return saleInfo;
 	}
 	private void updateRunningTotal(ItemDTO itemInfo, int quantity) {
@@ -46,15 +47,16 @@ public class Sale {
 	public Amount countDiscount(String customerID,CustomerRegistry customerRegistry){
 		DiscountRules discountRules = new DiscountRules();
 		Amount totalAmount = this.runningTotal;
-		double totalPriceAfterDiscount = totalAmount.getAmount();
+		double countedDiscount = totalAmount.getAmount();
 		if(customerRegistry.isEligible(customerID)){
-			totalPriceAfterDiscount = totalPriceAfterDiscount * (1- discountRules.discountRateMember(this.saleInfo));
+			countedDiscount = countedDiscount * (1- discountRules.discountRateMember(this.saleInfo));
 		}
 		else{
-			totalPriceAfterDiscount = totalPriceAfterDiscount * (1 - discountRules.discountRateNotMember(this.saleInfo));
+			countedDiscount = countedDiscount * (1 - discountRules.discountRateNotMember(this.saleInfo));
 		}
-		int roundedPriceAfterDiscount = (int) Math.round(totalPriceAfterDiscount);
-		return new Amount(roundedPriceAfterDiscount,"kr");
+		int roundedPriceAfterDiscount = (int) Math.round(countedDiscount);
+		this.totalPriceAfterDiscount = new Amount(roundedPriceAfterDiscount,"kr");
+		return this.totalPriceAfterDiscount;
 	}
 	
 	/**
@@ -67,7 +69,7 @@ public class Sale {
 	public Amount countPayment(Amount amountPaid) {
 		int amountInChange = amountPaid.amountSubtraction(this.runningTotal);
 		change = new Amount(amountInChange, "kr");
-		this.saleInfo = new SaleDTO(this.runningTotal, this.itemsInCurrentSale, this.change);
+		saleInfo = new SaleDTO(this.runningTotal, this.itemsInCurrentSale, this.change, this.totalPriceAfterDiscount);
 		return change;
 	}
 	
