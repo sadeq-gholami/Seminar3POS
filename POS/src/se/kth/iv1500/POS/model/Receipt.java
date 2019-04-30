@@ -7,18 +7,12 @@ import java.util.*;
 
 public class Receipt {
 	private final SaleDTO saleInfo;
+	private int VATForEntireSale;
 	//private StoreDTO storeInfo;
 	
 	public Receipt(SaleDTO saleInfo) {
 		this.saleInfo = saleInfo;
 	}
-	
-	/*private ItemDTO iteratorForTheIteminformationLoop() {
-		Iterator<ItemDTO> iterator = itemsincurrentsale.iterator();
-		while(iterator.hasNext()) {
-			ItemDTO next = iterator.next();
-		}
-	}*/
 	
 	 /**
 	 * Creates a well-formatted string with the entire content
@@ -42,14 +36,22 @@ public class Receipt {
 			 builder.append("Price: ");
 			 appendLine(builder, next.getPrice().toString());
 			 endSection(builder);
+			 builder.append("Quantity: ");
+			 appendLine(builder, next.getItemQuantity() + " ");
+			 endSection(builder);
+			 VATForEntireSale(next);
 		 }
 		 
 		 builder.append("Total price: ");
 		 appendLine(builder, saleInfo.getRunningTotal().toString());
 		 endSection(builder);
 		 
+		 builder.append("VAT for Entire Sale: ");
+		 appendLine(builder, new Amount(VATForEntireSale, "kr").toString());
+		 endSection(builder);
+		 
 		 builder.append("Amount paid: ");
-		 appendLine(builder, calculateAmountPaid(saleInfo));
+		 appendLine(builder, calculateAmountPaid(saleInfo).toString());
 		 endSection(builder);
 		 
 		 builder.append("Change: ");
@@ -68,10 +70,24 @@ public class Receipt {
 			 builder.append("\n");
 		 }
 		 
-		 private String calculateAmountPaid(SaleDTO saleInfo) {
+		 private Amount calculateAmountPaid(SaleDTO saleInfo) {
 			 int change = saleInfo.getChange().getAmount();
 			 int totalPrice = saleInfo.getRunningTotal().getAmount();
 			 int amountPaid = change + totalPrice;
-			 return amountPaid + " ";
+			 return new Amount(amountPaid, "kr");
+		 }
+		 
+		 private double vatForItem(ItemDTO item) {
+			 Amount priceOfItem = item.getPrice();
+		   	 int quantityOfItem = item.getItemQuantity();
+			 int amountOfPrice = priceOfItem.getAmount();
+		   	 double vatRate = item.getVateRate();
+			 double VATForItem = quantityOfItem*(amountOfPrice * vatRate);
+			 return VATForItem;
+		 }
+		 
+		 private void VATForEntireSale(ItemDTO item) {
+			double itemVat = vatForItem(item);
+			VATForEntireSale += itemVat; 
 		 }
 }
