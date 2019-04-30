@@ -7,7 +7,7 @@ public class Sale {
 	private Amount runningTotal = new Amount(0,"kr");
 	private List<ItemDTO> itemsInCurrentSale = new ArrayList<>();
 	private Amount change;
-	private Amount totalPriceAfterDiscount;
+	private Amount totalPriceAfterDiscount = new Amount (0, "kr");
 	private SaleDTO saleInfo;
 	
 	/**
@@ -61,7 +61,7 @@ public class Sale {
 			countedDiscount = countedDiscount * (1 - discountRules.discountRateNotMember(this.saleInfo));
 		}
 		int roundedPriceAfterDiscount = (int) Math.round(countedDiscount);
-		this.totalPriceAfterDiscount = new Amount(roundedPriceAfterDiscount,"kr");
+		this.totalPriceAfterDiscount.addAmount(roundedPriceAfterDiscount);
 		return this.totalPriceAfterDiscount;
 	}
 	
