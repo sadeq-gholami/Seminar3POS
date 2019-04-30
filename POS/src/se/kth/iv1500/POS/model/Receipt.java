@@ -5,6 +5,9 @@ import se.kth.iv1500.POS.DTOs.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
+/**
+ *The receipt of a Sale
+ */
 public class Receipt {
 	private final SaleDTO saleInfo;
 	private int VATForEntireSale;

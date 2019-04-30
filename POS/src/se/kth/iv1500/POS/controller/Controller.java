@@ -53,6 +53,14 @@ public class Controller {
 	    	return totalPriceAfterDiscount;
 		}
 	    
+	     
+	    /**
+	     * Handles sale payment. Updates the cash register here
+	     * the payment was performed and records the payment.
+	     * Calculates change. Prints the receipt.
+	     * @param amtPaid the amount paid
+	     * @return change the amount of change for customer to recieve
+	     */
 	    public Amount pay(Amount amtPaid) {
 	    	Amount change = sale.countPayment(amtPaid);
 	    	CashPayment payment = new CashPayment(amtPaid);
