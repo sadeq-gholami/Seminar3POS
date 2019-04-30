@@ -11,9 +11,10 @@ public class CashRegister {
 	public CashRegister() {
 	}
 	/**
-	 * Records the payment
-	 * @param payment
-	 */
+	* Records the specific payment permanently.
+	*
+	* @param payment The payment that will be saved.
+	*/
 	public void recordPayment(CashPayment payment) {
 	}
 }
