@@ -40,8 +40,7 @@ public class ReceiptTest {
 		
 		String receiptString = receipt.createReceiptString();
 		
-		Assertions.assertTrue(
-			receiptString.startsWith("Sale Receipt"));
+		assertTrue(receiptString.startsWith("Sale Receipt"),"Sale dose not contain sale receipt");
 				
 		Assertions.assertTrue(
 				receiptString.contains("Total price: 11 KR"));		
