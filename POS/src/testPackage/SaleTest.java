@@ -38,5 +38,22 @@ class SaleTest {
 		assertNotNull(saleInfo, "the item that should be add is not added");
 	}
 	
+	@Test
+	 void testCountPayment() {
+		
+		ItemDTO bread = new ItemDTO("bread", new Amount(100 ,"kr"), 0.2, "123456789");
+		int quantity = 1;
+		bread.setItemQuantity(quantity);
+		Sale instance = new Sale();
+		instance.addItem(bread);
+		Amount amountPayed = new Amount (126, "kr");
+		Amount result = instance.countPayment(amountPayed);
+		assertEquals(6,result.getAmount(), "count payment should calculate correctly when paying 100 kr for 1 item that cost 100 kr ");
+
+
+
+
+	}
+	
 
 }
