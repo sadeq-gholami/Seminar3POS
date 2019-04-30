@@ -57,6 +57,36 @@ class ControllerTest {
 		assertNull(saleInfo, "the returned object with ivalidId is not null");
 	}
 	
+	
+	
+	
+	@Test
+	void testCalculateDiscountforMembers() {
+		
+		String milkId = "123456789";
+		int itemQuantity = 8;
+		SaleDTO saleInfo = instanceCont.addItem(milkId, itemQuantity);
+		
+		Amount result = instanceCont.discountRequest("123ABC");
+		
+		assertEquals(53, result.getAmount(),"Should calculate the discount for members correctly." );
+
+	}
+	
+	
+	@Test
+	void testCalculateDiscountforNoNMembers() {
+		
+		String milkId = "123456789";
+		int itemQuantity = 8;
+		SaleDTO saleInfo = instanceCont.addItem(milkId, itemQuantity);
+		
+		Amount result = instanceCont.discountRequest("NON_member");
+		assertEquals(66, result.getAmount(),"Should calculate the discount for non members correctly." );
+
+	}
+	
+	
 	@Test
 	void testPayWhenCustomerIsAMember() {
 		
