@@ -9,7 +9,7 @@ public class CustomerDTO {
     private String customerID;
 
     /**
-	 * creates a new instans representing a new item; 
+	 * creates a new instans representing a new Customer; 
 	 * @param  customer name      		the name of an customer
 	 * @param  customerID     		    the ID that indetifies customer
 	 */
