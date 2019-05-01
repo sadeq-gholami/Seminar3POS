@@ -3,6 +3,7 @@
 	<name>se.kth.iv1500.POS</name>
 	<comment></comment>
 	<projects>
+		<project>Seminar3POS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

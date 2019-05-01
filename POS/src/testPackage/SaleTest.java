@@ -49,13 +49,6 @@ class SaleTest {
         CustomerRegistry instance2 = extSys.getCustomerRegistry();
 
 
-
-
-        instance2.add(new CustomerDTO("Mohamed",customerID));
-
-
-
-
         Sale instance = new Sale();
         Amount discountedPrice = instance.countDiscount(customerID,instance2);
         int returnedObject = discountedPrice.getAmount();
