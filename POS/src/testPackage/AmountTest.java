@@ -1,4 +1,5 @@
 package testPackage;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -74,27 +75,25 @@ class AmountTest {
     public void toStringPositiveAmt() {
         int representedAmt = 10;
         Amount amount = new Amount(representedAmt, "kr");
-        String expResult = Integer.toString(representedAmt);
+        String expResult = representedAmt + " kr";
         String result = amount.toString();
-        assertEquals("Wrong string returned by toString", expResult, result);
+        assertTrue("Wrong string returned by toString", expResult.equals(result));
         }
 
     @Test
     public void toStringNegativeAmt() {
         int representedAmt = -10;
         Amount amount = new Amount(representedAmt, "kr");
-        String expResult = Integer.toString(representedAmt);
+        String expResult = representedAmt + " kr";
         String result = amount.toString();
-        assertEquals("Wrong string returned by toString", expResult, result);
+        assertTrue("Wrong string returned by toString", expResult.equals(result));
     }
     @Test
     public void toStringZeroAmt() {
         int representedAmt = 0;
         Amount amount = new Amount(representedAmt, "kr");
-        String expResult = Integer.toString(representedAmt) + " kr";
+        String expResult = representedAmt+" kr";
         String result = amount.toString();
-        assertEquals("Wrong string returned by toString", expResult, result);
+        assertTrue("Wrong string returned by toString", expResult.equals(result));
     }
-}
-
 }
