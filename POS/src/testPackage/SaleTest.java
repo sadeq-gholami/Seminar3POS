@@ -33,6 +33,7 @@ class SaleTest {
         List<ItemDTO> itemInfo = saleInfo.getItemInfo();
         assertNotNull(itemInfo, "the item that should be added is not added");
     }
+
     @Test
     void testAddItemNotReturningNull() {
         ItemDTO bread = new ItemDTO("bread",new Amount(30 ,"kr"), 0.2,"123654789");
@@ -61,6 +62,22 @@ class SaleTest {
         int expRes = priceAfter;
         int result = returnedObject;
         assertEquals (expRes, result, "PriceAfterDiscount was not Correctly counted");
+    }
+    @Test
+    void testCountPayment() {
+
+        ItemDTO bread = new ItemDTO("bread", new Amount(100 ,"kr"), 0.2, "123456789");
+        int quantity = 1;
+        bread.setItemQuantity(quantity);
+        Sale instance = new Sale();
+        instance.addItem(bread);
+        Amount amountPayed = new Amount (126, "kr");
+        Amount result = instance.countPayment(amountPayed);
+        assertEquals(6,result.getAmount(), "count payment should calculate correctly when paying 100 kr for 1 item that cost 100 kr ");
+
+
+
+
     }
 
 
