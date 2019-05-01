@@ -69,7 +69,7 @@ class ControllerTest {
 		
 		Amount result = instanceCont.discountRequest("123ABC");
 		
-		assertEquals(53, result.getAmount(),"Should calculate the discount for members correctly." );
+		assertEquals(62, result.getAmount(),"Should calculate the discount for members correctly." );
 
 	}
 	
