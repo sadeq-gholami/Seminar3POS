@@ -35,5 +35,66 @@ class AmountTest {
 		int result = amountUnderTest.getAmount();
 		assertEquals (expRes, result, "Wrong addition result");
 	}
+	
+	@Test
+    void testAmountSubtraction() {
+        int amountOfOperand1 = 20;
+        int amountOfOperand2 = 10;
+        Amount Operand1 = new Amount (amountOfOperand1, "kr");
+        Amount Operand2 = new Amount (amountOfOperand2, "kr");
+
+        int expRes = amountOfOperand1 - amountOfOperand2;
+        int result = Operand1.amountSubtraction(Operand2);
+        assertEquals (expRes, result, "Wrong subtraction result");
+    }
+    @Test
+    void testAmountSubtractionNegResult() {
+        int amountOfOperand1 = 20;
+        int amountOfOperand2 = -10;
+        Amount Operand1 = new Amount (amountOfOperand1, "kr");
+        Amount Operand2 = new Amount (amountOfOperand2, "kr");
+
+        int expRes = amountOfOperand1 - amountOfOperand2;
+        int result = Operand1.amountSubtraction(Operand2);
+        assertEquals (expRes, result, "Wrong subtraction result");
+    }
+    @Test
+    void testAmountSubtractionNZeorRes() {
+        int amountOfOperand1 = 20;
+        int amountOfOperand2 = -20;
+        Amount Operand1 = new Amount (amountOfOperand1, "kr");
+        Amount Operand2 = new Amount (amountOfOperand2, "kr");
+
+        int expRes = amountOfOperand1 - amountOfOperand2;
+        int result = Operand1.amountSubtraction(Operand2);
+        assertEquals (expRes, result, "Wrong subtraction result");
+    }
+
+    @Test
+    public void toStringPositiveAmt() {
+        int representedAmt = 10;
+        Amount amount = new Amount(representedAmt, "kr");
+        String expResult = Integer.toString(representedAmt);
+        String result = amount.toString();
+        assertEquals("Wrong string returned by toString", expResult, result);
+        }
+
+    @Test
+    public void toStringNegativeAmt() {
+        int representedAmt = -10;
+        Amount amount = new Amount(representedAmt, "kr");
+        String expResult = Integer.toString(representedAmt);
+        String result = amount.toString();
+        assertEquals("Wrong string returned by toString", expResult, result);
+    }
+    @Test
+    public void toStringZeroAmt() {
+        int representedAmt = 0;
+        Amount amount = new Amount(representedAmt, "kr");
+        String expResult = Integer.toString(representedAmt) + " kr";
+        String result = amount.toString();
+        assertEquals("Wrong string returned by toString", expResult, result);
+    }
+}
 
 }

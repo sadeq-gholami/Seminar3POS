@@ -85,7 +85,6 @@ public class Sale {
 	*/
 	public void printReceipt(Printer printer) {
 		Receipt receipt = new Receipt(saleInfo);
-		System.out.println(receipt.createReceiptString());
 		printer.printReceipt(receipt);
 	}
 }
