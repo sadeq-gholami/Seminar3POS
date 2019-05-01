@@ -43,24 +43,18 @@ class SaleTest {
     }
     @Test
     void testcountNoDiscount() {
-        int priceAfter = 58;
-        String customerID = "123ABC";
+
+        ItemDTO bread = new ItemDTO("milk", new Amount(10 ,"kr"), 0.2, "123456789");
+        int quantity = 1;
+        bread.setItemQuantity(quantity);
+        Sale instance = new Sale();
         RegistryCreator extSys = new RegistryCreator();
         CustomerRegistry instance2 = extSys.getCustomerRegistry();
-
-
-
-
-        instance2.add(new CustomerDTO("Mohamed",customerID));
-
-
-
-
-        Sale instance = new Sale();
-        Amount discountedPrice = instance.countDiscount(customerID,instance2);
-        int returnedObject = discountedPrice.getAmount();
-        int expRes = priceAfter;
-        int result = returnedObject;
+        
+        SaleDTO saleInfo = instance.addItem(bread);
+        Amount priceAfterDiscount = instance.countDiscount("wrong ID", instance2);
+        int result = priceAfterDiscount.getAmount();
+    	int expRes = saleInfo.getRunningTotal().getAmount();
         assertEquals (expRes, result, "PriceAfterDiscount was not Correctly counted");
     }
     @Test
@@ -70,13 +64,15 @@ class SaleTest {
         int quantity = 1;
         bread.setItemQuantity(quantity);
         Sale instance = new Sale();
-        instance.addItem(bread);
-        Amount amountPayed = new Amount (126, "kr");
+        RegistryCreator extSys = new RegistryCreator();
+        CustomerRegistry instance2 = extSys.getCustomerRegistry();
+        
+        SaleDTO saleInfo = instance.addItem(bread);
+        Amount priceAfterDiscount = instance.countDiscount("wrong ID", instance2);
+        Amount amountPayed = new Amount (200, "kr");
         Amount result = instance.countPayment(amountPayed);
-        assertEquals(6,result.getAmount(), "count payment should calculate correctly when paying 100 kr for 1 item that cost 100 kr ");
-
-
-
+        int expRes = 200 - priceAfterDiscount.getAmount();
+        assertEquals(expRes, result.getAmount(), "count payment should calculate correctly when paying 100 kr for 1 item that cost 100 kr ");
 
     }
 

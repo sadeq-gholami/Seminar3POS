@@ -26,7 +26,7 @@ public class DiscountRules {
         int totalPrice = totalAmount.getAmount();
         List<ItemDTO> itemInfo = saleInfo.getItemInfo();
 
-        if(totalPrice >= 50){
+        if(totalPrice >= 100){
             discount = discount + TENPROCENTDISCOUNT;
         }
         if(isItemBread (itemInfo)){
