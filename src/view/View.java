@@ -1,6 +1,6 @@
-package se.kth.iv1500.POS.view;
-import se.kth.iv1500.POS.controller.*;
-import se.kth.iv1500.POS.DTOs.*;
+package view;
+import controller.*;
+import POS.DTOs.*;
 public class View {
 	 private Controller contr;
 	    
@@ -9,13 +9,12 @@ public class View {
 	    }
 	    /**
 	     * a fake method which is used instead of real user interface
-	     * @throws Exception 
 	     */
 	    
-	    public void runFakeSale() throws Exception {
+	    public void runFakeSale() {
 	        contr.startNewSale();
 	        System.out.println("New sale was started.");
-	        String itemIdentifier = "1236547890";
+	        String itemIdentifier = "123654789";
 	        SaleDTO saleInfo = contr.addItem(itemIdentifier, 4);
 	        int value = saleInfo.getRunningTotal().getAmount();
 	        System.out.println("the item was added successfully \n "

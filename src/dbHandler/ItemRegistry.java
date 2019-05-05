@@ -1,7 +1,5 @@
-package se.kth.iv1500.POS.dbHandler;
-import se.kth.iv1500.POS.DTOs.*;
-import se.kth.iv1500.POS.model.exceptions.ItemNotFoundException;
-
+package dbHandler;
+import POS.DTOs.*;
 import java.util.ArrayList;
 import java.util.List;
 public class ItemRegistry {
@@ -29,19 +27,22 @@ public class ItemRegistry {
 	 * @param itemIdentifier   the identification of an item 
 	 * @return  an object of  <code >itemDTO</code> if there is an item with the same identification else <code>null</code>
 	 */
-	public ItemDTO findItem(String itemIdentifier) throws ItemNotFoundException {
-			ItemDTO itemInfo = null;
-			for (ItemDTO item : items) {
-				if (item.getItemIdentifier().equals(itemIdentifier)) {
-					return item;
-				}
+	public ItemDTO findItem(String itemIdentifier) {
+		ItemDTO itemInfo = null;
+		for (ItemDTO item : items) {
+			if (item.getItemIdentifier().equals(itemIdentifier)) {
+				itemInfo = item;
 			}
-			throw new ItemNotFoundException("Item: "+ itemIdentifier +" is not registred.");
+		}
+		
+		return itemInfo;
 	}
 	
 	private void addItem() {
 		items.add(new ItemDTO("milk", MILKPRICE, VAT10PERCENT, MILKITEMIDENTIFIER));
 		items.add(new ItemDTO("cocacola", COCACOLAPRICE,VAT15PERCENT, COCACOLAITEMIDENTIFIER));
 		items.add(new ItemDTO("bread", BREADPRICE, VAT20PERCENT, BREADITEMIDENTIFIER));
+		
+		
 	}
 }
