@@ -1,16 +1,19 @@
 package testPackage;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-
+import se.kth.iv1500.POS.model.*;
+import se.kth.iv1500.POS.model.exceptions.ItemNotFoundException;
 import se.kth.iv1500.POS.controller.*;
 import se.kth.iv1500.POS.DTOs.*;
 import se.kth.iv1500.POS.dbHandler.*;
-import se.kth.iv1500.POS.model.*;
 class ControllerTest {
 	private Controller instanceCont;
 	private Sale newSale;
@@ -36,7 +39,7 @@ class ControllerTest {
 	}
 
 	@Test
-	void testAddItemReturnRightObject() {
+	void testAddItemReturnRightObject() throws Exception {
 		String milkId = "123456789";
 		int itemQuantity = 4;
 		SaleDTO saleInfo = instanceCont.addItem(milkId, itemQuantity);
@@ -49,19 +52,28 @@ class ControllerTest {
 	}
 	
 
+	
 	@Test
-	void testAddItemReturnNull() {
-		String invalidId = "wrongId";
-		int itemQuantity = 4;
-		SaleDTO saleInfo = instanceCont.addItem(invalidId, itemQuantity);
-		assertNull(saleInfo, "the returned object with ivalidId is not null");
+	void testAddInvalidItemThrowsException()  throws ItemNotFoundException{
+		
+		Assertions.assertThrows(ItemNotFoundException.class, () -> {
+			
+			String invalidId = "wrongId";
+			int itemQuantity = 4;
+			SaleDTO saleInfo = instanceCont.addItem(invalidId, itemQuantity);
+			assertNull(saleInfo, "the returned object with ivalidId is not null");
+			
+
+		   
+		  });
+	
 	}
 	
 	
 	
 	
 	@Test
-	void testCalculateDiscountforMembers() {
+	void testCalculateDiscountforMembers() throws Exception{
 		
 		String milkId = "123456789";
 		int itemQuantity = 8;
@@ -75,7 +87,7 @@ class ControllerTest {
 	
 	
 	@Test
-	void testCalculateDiscountforNoNMembers() {
+	void testCalculateDiscountforNoNMembers() throws Exception {
 		
 		String milkId = "123456789";
 		int itemQuantity = 8;
@@ -88,7 +100,7 @@ class ControllerTest {
 	
 	
 	@Test
-	void testPayWhenCustomerIsAMember() {
+	void testPayWhenCustomerIsAMember() throws Exception {
 		
 		String bread = "123654789";
 		int itemQuantity = 3;
@@ -100,7 +112,7 @@ class ControllerTest {
 	}
 	
 	@Test
-	void testPayWhenCustomerIsNotMember() {
+	void testPayWhenCustomerIsNotMember() throws Exception{
 		
 		String bread = "123654789";
 		int itemQuantity = 3;

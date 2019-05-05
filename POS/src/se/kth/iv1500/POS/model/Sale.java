@@ -1,6 +1,8 @@
 package se.kth.iv1500.POS.model;
 import se.kth.iv1500.POS.DTOs.*;
 import se.kth.iv1500.POS.dbHandler.*;
+import se.kth.iv1500.POS.model.Amount;
+
 import java.util.ArrayList;
 import java.util.List;
 public class Sale {
@@ -27,7 +29,11 @@ public class Sale {
 		this.itemsInCurrentSale.add(itemInfo);
 		int quantity = itemInfo.getItemQuantity();
 		updateRunningTotal(itemInfo, quantity);
-		saleInfo = new SaleDTO(this.runningTotal, this.itemsInCurrentSale, this.change, this.totalPriceAfterDiscount);
+		saleInfo = new SaleDTO(
+				this.runningTotal, 
+				this.itemsInCurrentSale, 
+				this.change, 
+				this.totalPriceAfterDiscount);
 		return saleInfo;
 	}
 	private void updateRunningTotal(ItemDTO itemInfo, int quantity) {

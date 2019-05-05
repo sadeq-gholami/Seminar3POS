@@ -1,7 +1,9 @@
 package se.kth.iv1500.POS.DTOs;
 
 import java.util.ArrayList;
+import se.kth.iv1500.POS.model.Amount;
 import java.util.List;
+
 
 /**
  * this is a place holder for sale information 
@@ -19,7 +21,11 @@ public class SaleDTO {
 	 * @param  runningTotal     total price after scanning each item
 	 * @param  itemInfo         an instance of itemDTO which is a place holder for information about an item      	  
 	 */
-	public SaleDTO(Amount runningTotal,List <ItemDTO> itemInfo, Amount change, Amount totalPriceAfterDiscount) {
+	public SaleDTO(
+			Amount runningTotal,
+			List <ItemDTO> itemInfo, 
+			Amount change, 
+			Amount totalPriceAfterDiscount) {
 		this.runningTotal = runningTotal;
 		this.itemsInCurrentSale = itemInfo;
 		this.change = change;

@@ -1,5 +1,6 @@
 package se.kth.iv1500.POS.dbHandler;
 import se.kth.iv1500.POS.DTOs.*;
+import se.kth.iv1500.POS.model.Amount;
 import se.kth.iv1500.POS.model.exceptions.ItemNotFoundException;
 
 import java.util.ArrayList;

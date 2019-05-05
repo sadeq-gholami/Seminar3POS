@@ -1,6 +1,5 @@
 package se.kth.iv1500.POS.model;
-//import se.kth.iv1500.POS.DTOs.SaleDTO;
-//import se.kth.iv1500.POS.DTOs.ItemDTO;
+
 import se.kth.iv1500.POS.DTOs.*;
 import java.time.LocalDateTime;
 import java.util.*;

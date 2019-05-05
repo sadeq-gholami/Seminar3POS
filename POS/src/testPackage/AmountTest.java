@@ -1,5 +1,6 @@
 package testPackage;
 import static org.junit.Assert.assertTrue;
+import se.kth.iv1500.POS.model.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;

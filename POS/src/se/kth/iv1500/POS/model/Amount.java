@@ -1,7 +1,5 @@
 package se.kth.iv1500.POS.model;
 
-import POS.src.se.kth.iv1500.POS.DTOs.Amount;
-import POS.src.se.kth.iv1500.POS.DTOs.String;
 
 /**
  * 

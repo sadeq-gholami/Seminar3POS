@@ -39,7 +39,7 @@ class ViewTest {
 
 		
 	@Test
-	void testRunFakeSale() {
+	void testRunFakeSale() throws Exception {
 		instance.runFakeSale();
 		String result = printOut.toString();
 		String expRes = "started";
@@ -47,7 +47,7 @@ class ViewTest {
 	}
 	
 	@Test
-	void testRunFakeSaleAddItem() {
+	void testRunFakeSaleAddItem()  throws Exception {
 		instance.runFakeSale();
 		String result = printOut.toString();
 		String expRes = "item";

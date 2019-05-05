@@ -1,6 +1,7 @@
 package testPackage;
 
 import java.util.ArrayList;
+import se.kth.iv1500.POS.model.Amount;
 import java.util.List;
 import java.util.function.BooleanSupplier;
 
@@ -10,9 +11,6 @@ import org.junit.jupiter.api.Assertions;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-
-import se.kth.iv1500.POS.DTOs.Amount;
 import se.kth.iv1500.POS.DTOs.ItemDTO;
 import se.kth.iv1500.POS.DTOs.SaleDTO;
 import se.kth.iv1500.POS.model.Receipt;

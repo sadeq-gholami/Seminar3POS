@@ -1,5 +1,6 @@
 package se.kth.iv1500.POS.dbHandler;
 import se.kth.iv1500.POS.DTOs.*;
+import se.kth.iv1500.POS.model.Amount;
 
 import java.util.List;
 /**

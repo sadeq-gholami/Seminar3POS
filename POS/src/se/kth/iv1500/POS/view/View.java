@@ -1,5 +1,6 @@
 package se.kth.iv1500.POS.view;
 import se.kth.iv1500.POS.controller.*;
+import se.kth.iv1500.POS.model.*;
 import se.kth.iv1500.POS.DTOs.*;
 public class View {
 	 private Controller contr;
@@ -15,7 +16,7 @@ public class View {
 	    public void runFakeSale() throws Exception {
 	        contr.startNewSale();
 	        System.out.println("New sale was started.");
-	        String itemIdentifier = "1236547890";
+	        String itemIdentifier = "123654789";
 	        SaleDTO saleInfo = contr.addItem(itemIdentifier, 4);
 	        int value = saleInfo.getRunningTotal().getAmount();
 	        System.out.println("the item was added successfully \n "

@@ -2,6 +2,7 @@ package testPackage;
 
 import static org.junit.Assert.*;
 
+import se.kth.iv1500.POS.model.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.time.LocalDateTime;
@@ -9,7 +10,7 @@ import java.util.List;
 import org.junit.*;
 
 import se.kth.iv1500.POS.DTOs.*;
-import se.kth.iv1500.POS.model.*;
+import se.kth.iv1500.POS.model.Amount;
 import se.kth.iv1500.POS.dbHandler.*;
 
 public class PrinterTest {
